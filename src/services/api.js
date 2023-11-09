@@ -1,3 +1,23 @@
+import axios from "axios";
+async function loadProducts() {
+  try {
+    const response = await axios.get("https://fakestoreapi.com/products");
+    const resData = await response.data;
+    return resData;
+  } catch (error) {
+    throw new Error("Could not fetch products");
+  }
+}
+async function loadCategories() {
+  try {
+    const response = await axios.get("https://fakestoreapi.com/products/categories");
+    const resData = await response.data;
+    return resData;
+  } catch (error) {
+    throw new Error("Could not fetch products");
+  }
+}
+
 export const getData = async () => {
   // const slideHeader = await getDocuments('slide-header');
   const slideHeader = [
@@ -12,8 +32,7 @@ export const getData = async () => {
     {
       title: "Lorem ipsum dolor sit amet",
       subtitle: "100% genuine Products",
-      "image-slide":
-        "https://www.jssor.com/premium/fashion/img/plaza.jpg",
+      "image-slide": "https://www.jssor.com/premium/fashion/img/plaza.jpg",
       desc: "You should eat at least 5 serves of vegetables and 2 serves of fruit each day. Choose different colours and varieties.",
       id: "2",
     },
@@ -52,8 +71,12 @@ export const getData = async () => {
       id: "3",
     },
   ];
+  const products = await loadProducts();
+  const categories = await loadCategories();
   return {
     slideHeader,
     promotions,
+    products,
+    categories
   };
 };
