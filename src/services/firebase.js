@@ -3,8 +3,8 @@ import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-	apiKey: 'AIzaSyBTPib--JiS7phRmxpwcBh2fcMEADViIRM',
-	// apiKey: process.env.REACT_APP_FIREBASE_KEY,
+	// apiKey: 'AIzaSyBTPib--JiS7phRmxpwcBh2fcMEADViIRM',
+	apiKey: process.env.REACT_APP_FIREBASE_KEY,
 	authDomain: 'freshmeals-reactjs.firebaseapp.com',
 	projectId: 'freshmeals-reactjs',
 	storageBucket: 'freshmeals-reactjs.appspot.com',

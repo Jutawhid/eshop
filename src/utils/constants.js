@@ -1,10 +1,27 @@
 import logoHeader01 from '../assets/logo.png';
 import logoHeader02 from '../assets/logo01.png';
-
-
+import paymentImg from '../assets/payment.png';
+import noresult from '../assets/search/noresults.png';
+import emailImg from '../assets/contact/mail.png';
+import phoneImg from '../assets/contact/phone.png';
+import locateImg from '../assets/contact/locate.png';
+import userImg from '../assets/user/user.png';
+import deniedImg from '../assets/permission_denied.png';
+import spinnerImg from '../assets/spinner.jpg';
+import add_cart from '../assets/add_cart.png';
 
 export const logo01 = logoHeader01;
 export const logo02 = logoHeader02;
+export const paymentMethod = paymentImg;
+export const noResult = noresult;
+export const email = emailImg;
+export const phone = phoneImg;
+export const locate = locateImg;
+export const user = userImg;
+export const denied = deniedImg;
+export const spinner = spinnerImg;
+export const addCart = add_cart;
+
 export const labelProduct = [
 	{ id: 1, label: 'food & drinks' },
 	{ id: 2, label: 'vegetables' },
@@ -13,6 +30,7 @@ export const labelProduct = [
 	{ id: 5, label: 'fish & meat' },
 	{ id: 6, label: 'fruits' },
 ];
+
 // Navbar
 export const navbarList = [
 	{
@@ -41,11 +59,41 @@ export const navbarList = [
 		parent_id: 1,
 	}
 ];
+
+export const userList = [
+	{
+		id: 1,
+		title: 'Sign in',
+		url: '/login',
+	},
+	{
+		id: 2,
+		title: 'Register',
+
+		url: '/register',
+	},
+	{
+		id: 3,
+		title: 'My Account',
+		url: '/user-profile',
+	},
+	{
+		id: 4,
+		title: 'Wishlist',
+		url: '/coming-soon',
+	},
+];
+
 export const linkList = [
 	{ id: 1, title: 'About', url: '/about' },
-	{ id: 2, title: 'shop', url: '/shop' },
-	{ id: 3, title: 'Contact-us', url: '/contact' },
+	{ id: 3, title: 'Locations Map', url: '/contact' },
 ];
+
+export const linkFooter = [
+	{ id: 1, title: 'Order tracking', url: '/user-profile' },
+	{ id: 2, title: 'Promotional Offers', url: '/shop' },
+];
+
 export const productFilter = {
 	categories: [
 		{
@@ -134,39 +182,20 @@ export const productFilter = {
 		},
 	],
 };
-export const linkFooter = [
-	{ id: 1, title: 'Order tracking', url: '/user-profile' },
-	{ id: 2, title: 'Promotional Offers', url: '/shop' },
-];
-
-export const userList = [
+export const consent = [
 	{
-		id: 1,
-		title: 'Sign in',
-		url: '/login',
+		key: 'I consent to Herboil processing my personal data in order to send personalized marketing material in accordance with the consent form and the privacy policy.',
+		value: '0',
 	},
 	{
-		id: 2,
-		title: 'Register',
-
-		url: '/register',
-	},
-	{
-		id: 3,
-		title: 'My Account',
-		url: '/user-profile',
-	},
-	{
-		id: 4,
-		title: 'Wishlist',
-		url: '/coming-soon',
+		key: 'By clicking "create account", I consent to the privacy policy.',
+		value: '1',
 	},
 ];
 
 export const countryOption = [
 	{ key: 'Select country', value: '' },
 	{ key: 'Australia', value: 'Australia' },
-	{ key: 'Bangladesh', value: 'Bangladesh' },
 	{ key: 'France', value: 'France' },
 	{ key: 'United Kingdom (UK)', value: 'United Kingdom (UK)' },
 	{ key: 'China', value: 'China' },

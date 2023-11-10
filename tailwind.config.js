@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+
+module.exports = {
+	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		screens: {
 			sm: '480px',
@@ -13,7 +14,7 @@ export default {
 				card: '0 0px 5px 1px rgba(0, 0, 0, 0.1)',
 			},
 			colors: {
-				greenBtn: '#80B500',
+				greenBtn: '#80b500',
 				sectionBg: '#F7F5EB',
 			},
 			keyframes: {
@@ -132,8 +133,4 @@ export default {
 			},
 		},
 	},
-  plugins: [
-    // ...
-    require("@tailwindcss/aspect-ratio"),
-  ],
 };

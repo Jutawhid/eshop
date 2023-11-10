@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../services/firebase';
+import { db } from '@services/firebase';
 
 function useQuery(col, init) {
 	const [resultQuery, setResultQuery] = useState(init);
