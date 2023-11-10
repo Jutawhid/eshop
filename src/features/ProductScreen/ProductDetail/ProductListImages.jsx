@@ -6,7 +6,7 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
-import SliderButton from '@components/UI/Slider/SliderButton';
+import SliderButton from '../../../components/UI/Slider/SliderButton';
 
 function ProductListImages({ images }) {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);

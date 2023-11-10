@@ -5,5 +5,6 @@ export { default as PaymentMethod } from './PaymentForm';
 export { default as SearchForm } from './SearchForm';
 export { default as SubscribeForm } from './SubscribeForm';
 export { default as FormikControl } from './FormikControl';
+export { default as CommonSection } from './CommonSection';
 
 export * from './ValidationSchema';

@@ -17,7 +17,6 @@ import CartBtn from '../../components/Cart/CartBtn';
 
 import * as cs from '../../utils/constants';
 const Header = () => {
-
 	const [showDropdown, setShowDropdown] = useState(false);
 
 	const headerRef = useRef(null);
@@ -63,7 +62,7 @@ const Header = () => {
 			className="relative flex justify-center bg-transparent"
 			ref={headerRef}
 		>
-			<Banner />
+			{isHomePage && <Banner />}
 			<div
 				className={`z-10 container ${
 					isHomePage ? 'absolute' : ''

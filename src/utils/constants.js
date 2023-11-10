@@ -46,7 +46,94 @@ export const linkList = [
 	{ id: 2, title: 'shop', url: '/shop' },
 	{ id: 3, title: 'Contact-us', url: '/contact' },
 ];
-
+export const productFilter = {
+	categories: [
+		{
+			id: 1,
+			value: 'bread',
+			key: 'bread',
+		},
+		{
+			id: 2,
+			value: 'cake',
+			key: 'cake',
+		},
+		{
+			id: 3,
+			value: 'dried food',
+			key: 'dried food',
+		},
+		{
+			id: 4,
+			value: 'drink',
+			key: 'drink',
+		},
+		{
+			id: 5,
+			value: 'fish',
+			key: 'fish',
+		},
+		{
+			id: 6,
+			value: 'fruits',
+			key: 'fruits',
+		},
+		{
+			id: 7,
+			value: 'meat',
+			key: 'meat',
+		},
+		{
+			id: 8,
+			value: 'vegetables',
+			key: 'vegetables',
+		},
+	],
+	labels: [
+		{
+			id: 1,
+			value: 'offer',
+			key: 'Offer',
+		},
+		{
+			id: 2,
+			value: 'big sale',
+			key: 'Big Sale',
+		},
+		{
+			id: 3,
+			value: 'new',
+			key: 'New',
+		},
+	],
+	rating: [
+		{
+			id: 1,
+			value: '1',
+			key: '1 start & Up',
+		},
+		{
+			id: 2,
+			value: '2',
+			key: '2 starts & Up',
+		},
+		{
+			id: 3,
+			value: '3',
+			key: '3 starts & Up',
+		},
+		{
+			id: 4,
+			value: '4',
+			key: '4 starts & Up',
+		},
+		{
+			id: 5,
+			value: '5',
+			key: '5 starts & Up',
+		},
+	],
+};
 export const linkFooter = [
 	{ id: 1, title: 'Order tracking', url: '/user-profile' },
 	{ id: 2, title: 'Promotional Offers', url: '/shop' },

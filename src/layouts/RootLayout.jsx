@@ -1,12 +1,21 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import { getData } from '../services/api';
-function RootLayout() {
+import {CommonSection} from '../components/Form';
 
+function RootLayout() {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   return (
     <>
-      <Header />
+      {isHomePage ? (
+				<Header />
+			) : (
+				<CommonSection title={location.pathname.substring(1)}>
+					<Header />
+				</CommonSection>
+			)}
       <main>
         <Outlet />
       </main>

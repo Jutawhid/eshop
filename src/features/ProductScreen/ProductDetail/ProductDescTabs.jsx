@@ -1,5 +1,5 @@
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
-import Rating from '@components/Product/Rating'
+import Rating from '../../../components/Product/Rating'
 
 function ProductTabs({ desc, review, rating, numReviews }) {
 	return (

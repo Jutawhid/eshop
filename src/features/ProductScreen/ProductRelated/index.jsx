@@ -1,9 +1,9 @@
 import { SwiperSlide } from 'swiper/react';
-import Slider from '@components/UI/Slider';
+import Slider from '../../../components/UI/Slider';
 import { useRouteLoaderData } from 'react-router-dom';
 
 import ProductItem from '../ProductItem';
-import Title from '@components/Title';
+import Title from '../../../components/Title';
 import { useSelector } from 'react-redux';
 
 import QuickViewProductModal from '../ProductItem/QuickViewProductModal';

@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from 'react';
-import RangSlider from '@features/ProductScreen/ProductFilter/RangSlider';
+import RangSlider from '../../../features/ProductScreen/ProductFilter/RangSlider';
 
 function FilterPriceRange({ setFieldValue }) {
 	const initValue = {

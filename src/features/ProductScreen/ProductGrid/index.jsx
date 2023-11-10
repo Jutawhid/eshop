@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 
-import Pagination from '@components/UI/Pagination';
-import ProductItem from '@features/ProductScreen/ProductItem';
-import QuickViewProductModal from '@features/ProductScreen/ProductItem/QuickViewProductModal';
-import SuccessModal from '@features/ProductScreen/ProductItem/SuccessModal';
-import usePagination from '@hooks/usePagination';
+import Pagination from '../../../components/UI/Pagination';
+import ProductItem from '../../ProductScreen/ProductItem';
+import QuickViewProductModal from '../../ProductScreen/ProductItem/QuickViewProductModal';
+import SuccessModal from '../../ProductScreen/ProductItem/SuccessModal';
+import usePagination from '../../../hooks/usePagination';
 
 function ProductGrid({ products, fourCols = false }) {
 	const { dataRender, currentPage, totalPages, handlePageChange } =

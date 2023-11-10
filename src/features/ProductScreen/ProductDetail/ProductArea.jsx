@@ -3,16 +3,16 @@ import { useDispatch } from 'react-redux';
 import { BsArrowLeftRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
-import * as cs from '@utils/constants';
-import SocialLink from '@components/UI/SocialLink';
-import Button from '@components/UI/Button';
-import { cartActions } from '@store/cart/cartSlice';
+import * as cs from '../../../utils/constants';
+import SocialLink from '../../../components/UI/SocialLink';
+import Button from '../../../components/UI/Button';
+import { cartActions } from '../../../store/cart/cartSlice';
 import ProductListImages from './ProductListImages';
 import ProductDescTabs from './ProductDescTabs';
-import Rating from '@components/Product/Rating';
+import Rating from '../../../components/Product/Rating';
 import WishList from '../ProductItem/QuickViewProductModal/Wishlist';
-import { Quantity } from '@components/Cart/Quantity';
-import { toastMessage } from '@utils/toastMessage';
+import { Quantity } from '../../../components/Cart/Quantity';
+import { toastMessage } from '../../../utils/toastMessage';
 
 function ProductArea({ product }) {
 	let [quantity, setQuantity] = useState(1);

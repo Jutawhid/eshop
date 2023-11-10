@@ -1,7 +1,7 @@
 import ProductTopRated from '../ProductTopRated';
 import ProductArea from './ProductArea';
 import ProductRelated from '../ProductRelated';
-import { default as Promotion } from '@features/Promotion/Random';
+import { default as Promotion } from '../../Promotion/Random';
 
 function ProductDetail({ product }) {
 	return (
