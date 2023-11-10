@@ -2,15 +2,14 @@ import { SwiperSlide } from 'swiper/react';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
 import Slider from '../../../components/UI/Slider';
+import { labelProduct as label } from '../../../utils/constants';
 import Title from '../../../components/Title';
-import { useRouteLoaderData } from 'react-router-dom';
 import ProductItem from '../ProductItem';
 import { useSelector } from 'react-redux';
 import QuickViewProductModal from '../ProductItem/QuickViewProductModal';
 import SuccessModal from '../ProductItem/SuccessModal';
 
 const ProductList = ({ products }) => {
-	const { categories } = useRouteLoaderData('root');
 	const quickViewModal = useSelector((state) => state.modal.quickViewModal);
 	const successModal = useSelector((state) => state.modal.successModal);
 	return (
@@ -19,7 +18,7 @@ const ProductList = ({ products }) => {
 			<div className="mb-[15px]">
 				<Tabs>
 					<TabList className="flex justify-center flex-wrap pb-6 relative">
-						{categories.map((title, index) => (
+						{label.map((label, index) => (
 							<Tab
 								className={`relative text-sm md:text-lg font-bold uppercase px-6 py-6 my-1 mx-2
 									 hover:text-greenBtn cursor-pointer
@@ -30,9 +29,9 @@ const ProductList = ({ products }) => {
 
 									`}
 								selectedClassName="border-greenBtn border-b-2 text-greenBtn outline-0 hover:cursor-pointer"
-								key={index+1}
+								key={label.id}
 							>
-								{title}
+								{label.label}
 							</Tab>
 						))}
 					</TabList>
@@ -60,7 +59,8 @@ const ProductList = ({ products }) => {
 							{products
 								?.filter(
 									(item) =>
-										item.category == "electronics"
+										item.category.includes('food') ||
+										item.category.includes('drink')
 								)
 								.map((el) => (
 									<SwiperSlide key={el.id}>
@@ -92,7 +92,7 @@ const ProductList = ({ products }) => {
 						>
 							{products
 								?.filter((item) =>
-								item.category == "jewelery"
+									item.category.includes('vegetables')
 								)
 								.map((el) => (
 									<SwiperSlide key={el.id}>
@@ -124,7 +124,7 @@ const ProductList = ({ products }) => {
 						>
 							{products
 								?.filter((item) =>
-								item.category == "men's clothing"
+									item.category.includes('dried food')
 								)
 								.map((el) => (
 									<SwiperSlide key={el.id}>
@@ -157,7 +157,8 @@ const ProductList = ({ products }) => {
 							{products
 								?.filter(
 									(item) =>
-										item.category == "women's clothing"
+										item.category.includes('bread') ||
+										item.category.includes('cake')
 								)
 								.map((el) => (
 									<SwiperSlide key={el.id}>
@@ -169,7 +170,72 @@ const ProductList = ({ products }) => {
 								))}
 						</Slider>
 					</TabPanel>
-					
+					<TabPanel>
+						<Slider
+							breakpoints={{
+								768: {
+									spaceBetween: 30,
+								},
+								1024: {
+									slidesPerView: 3,
+								},
+								1280: {
+									slidesPerView: 4,
+								},
+							}}
+							slidesPerView={2}
+							spaceBetween={15}
+							grid={{ rows: 2, fill: 'row' }}
+							loop={false}
+						>
+							{products
+								?.filter(
+									(item) =>
+										item.category.includes('fish') ||
+										item.category.includes('meat')
+								)
+								.map((el) => (
+									<SwiperSlide key={el.id}>
+										<ProductItem
+											{...el}
+											card
+										/>
+									</SwiperSlide>
+								))}
+						</Slider>
+					</TabPanel>
+					<TabPanel>
+						<Slider
+							breakpoints={{
+								768: {
+									spaceBetween: 30,
+								},
+								1024: {
+									slidesPerView: 3,
+								},
+								1280: {
+									slidesPerView: 4,
+								},
+							}}
+							slidesPerView={2}
+							spaceBetween={15}
+							grid={{ rows: 2, fill: 'row' }}
+							loop={false}
+						>
+							{products
+								?.filter((item) =>
+									item.category.includes('fruits')
+								)
+								.map((el) => (
+									<SwiperSlide key={el.id}>
+										<ProductItem
+											{...el}
+											card
+										/>
+									</SwiperSlide>
+								))}
+						</Slider>
+					</TabPanel>
 				</Tabs>
 			</div>
 

@@ -1,12 +1,24 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { AnimatePresence } from 'framer-motion';
+import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
+import { modalActions } from '../../store/modal/modalSlice'
 import { useOnHoverOutside } from '../../hooks/useOnHoverOutside';
+
 import Navlink from '../../components/UI/Navlink';
 import Button from '../../components/UI/Button';
 import Banner from './Banner';
+import SearchProducts from './Search';
+import NavMobi from './NavMobi';
+import Dropdown from '../../components/UI/Dropdown';
+import ViewCart from '../../features/CartScreen/ViewCart';
+import CartBtn from '../../components/Cart/CartBtn';
 
 import * as cs from '../../utils/constants';
 const Header = () => {
+
+	const [showDropdown, setShowDropdown] = useState(false);
 
 	const headerRef = useRef(null);
 	const dropdownRef = useRef(null);
@@ -16,8 +28,35 @@ const Header = () => {
 	};
 	useOnHoverOutside(dropdownRef, closeHoverDropdown);
 
+	const showNavMobi = useSelector((state) => state.modal.navMobi.status);
+	const showCart = useSelector((state) => state.modal.isShowingCart);
+	const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+	const cartItems = useSelector((state) => state.cart.items);
+
+	const dispatch = useDispatch();
+
 	const location = useLocation();
 	const isHomePage = location.pathname === '/';
+
+	const handleClose = () => {
+		setShowDropdown(!showDropdown);
+	};
+
+	const handleCart = () => {
+		dispatch(modalActions.toggleCart());
+	};
+
+	const handleNavMobi = useCallback(
+		(status) => {
+			dispatch(modalActions.navMobi({ status }));
+		},
+		[dispatch]
+	);
+
+	const { pathname } = location;
+	useEffect(() => {
+		handleNavMobi(false);
+	}, [pathname, handleNavMobi]);
 
 	return (
 		<header
@@ -58,7 +97,66 @@ const Header = () => {
 							>
 								GET A QUOTE
 							</Button>
+							<div className="relative flex gap-3">
+								<div className="lg:block hidden">
+									<SearchProducts />
+								</div>
+								<div
+									ref={dropdownRef}
+									className="p-3 bg-white rounded-full hover:bg-[#80B500] inline-flex items-center cursor-pointer"
+									onMouseEnter={handleClose}
+								>
+									<Button>
+										<BiUser />
+									</Button>
+									{showDropdown ? (
+										<Dropdown
+											items={cs.userList}
+											handleClose={handleClose}
+										/>
+									) : null}
+								</div>
 
+								<Button
+									onClick={handleCart}
+									className="p-3 bg-white rounded-full hover:bg-greenBtn relative"
+								>
+									<BiCartAlt />
+									{totalQuantity > 0 && (
+										<span className="absolute -top-3 -right-1 text-2xl text-red-600">
+											{totalQuantity}
+										</span>
+									)}
+								</Button>
+								<CartBtn
+									onClick={handleCart}
+									totalQuantity={totalQuantity}
+								/>
+								<AnimatePresence>
+									{showCart ? (
+										<ViewCart
+											handleClose={handleCart}
+											item={cartItems}
+										/>
+									) : null}
+								</AnimatePresence>
+								<Button
+									className="bg-white p-3 rounded-full lg:hidden"
+									onClick={() => handleNavMobi(true)}
+								>
+									<BiMenu />
+								</Button>
+
+								<AnimatePresence>
+									{showNavMobi ? (
+										<NavMobi
+											handleClose={() =>
+												handleNavMobi(false)
+											}
+										/>
+									) : null}
+								</AnimatePresence>
+							</div>
 						</div>
 					</nav>
 				</div>

@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { BiUser, BiCartAlt, BiHeart } from 'react-icons/bi';
 import { MdClose } from 'react-icons/md';
 
-import Navlink from '@components/UI/Navlink';
-import SocialLink from '@components/UI/SocialLink';
-import SearchProducts from '@layouts/Header/Search';
-import Modal from '@components/UI/Modal';
-import * as cs from '@utils/constants';
+import Navlink from '../../components/UI/Navlink';
+import SocialLink from '../../components/UI/SocialLink';
+import SearchProducts from '../../layouts/Header/Search';
+import Modal from '../../components/UI/Modal';
+import * as cs from '../../utils/constants';
 
 const NavMobi = ({ handleClose }) => {
 	return (

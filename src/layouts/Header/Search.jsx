@@ -3,8 +3,8 @@ import { createSearchParams, useNavigate } from 'react-router-dom';
 import { BiSearch } from 'react-icons/bi';
 import { RiCloseFill } from 'react-icons/ri';
 
-import { SearchForm } from '@components/Form';
-import Button from '@components/UI/Button';
+import { SearchForm } from '../../components/Form';
+import Button from '../../components/UI/Button';
 
 function SearchProducts({ isMobi }) {
 	const [toggleSearchForm, setToggleSearchForm] = useState(false);

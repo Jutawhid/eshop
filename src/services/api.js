@@ -1,22 +1,41 @@
+import { collection, doc, getDocs, getDoc } from 'firebase/firestore';
+import { db } from './firebase';
 import axios from "axios";
-async function loadProducts() {
-  try {
-    const response = await axios.get("https://fakestoreapi.com/products");
-    const resData = await response.data;
-    return resData;
-  } catch (error) {
-    throw new Error("Could not fetch products");
-  }
-}
-async function loadCategories() {
-  try {
-    const response = await axios.get("https://fakestoreapi.com/products/categories");
-    const resData = await response.data;
-    return resData;
-  } catch (error) {
-    throw new Error("Could not fetch products");
-  }
-}
+
+export const getDocuments = async (col) => {
+	const docsSnap = await getDocs(collection(db, col));
+	let document = [];
+	docsSnap.forEach((doc) => {
+		document.push({ ...doc.data(), id: doc.id });
+	});
+	return document;
+};
+
+export const getDocumentById = async (id, col) => {
+	const docRef = doc(db, col, id);
+	const docSnap = await getDoc(docRef);
+	const obj = docSnap.data();
+	obj.id = id;
+	return obj ?? null;
+};
+// async function loadProducts() {
+//   try {
+//     const response = await axios.get("https://fakestoreapi.com/products");
+//     const resData = await response.data;
+//     return resData;
+//   } catch (error) {
+//     throw new Error("Could not fetch products");
+//   }
+// }
+// async function loadCategories() {
+//   try {
+//     const response = await axios.get("https://fakestoreapi.com/products/categories");
+//     const resData = await response.data;
+//     return resData;
+//   } catch (error) {
+//     throw new Error("Could not fetch products");
+//   }
+// }
 
 export const getData = async () => {
   // const slideHeader = await getDocuments('slide-header');
@@ -71,12 +90,13 @@ export const getData = async () => {
       id: "3",
     },
   ];
-  const products = await loadProducts();
-  const categories = await loadCategories();
+
+  const products = await getDocuments('products');
+  // const categories = await loadCategories();
   return {
     slideHeader,
     promotions,
     products,
-    categories
+    // categories
   };
 };
