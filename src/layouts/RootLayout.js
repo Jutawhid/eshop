@@ -5,7 +5,6 @@ import { Toaster } from 'react-hot-toast';
 
 import CommonSection from '@components/CommonSection';
 import Header from './Header';
-import FeatureFooter from '@features/HomeScreen/FeatureSection/FeatureFooter';
 import Footer from './Footer';
 import { fetchCartData, sendCartData } from '@store/cart/cart-actions';
 import { getData } from '../services/api';
@@ -54,7 +53,6 @@ function RootLayout() {
 					duration: 1500,
 				}}
 			/>
-			<FeatureFooter />
 			<Footer />
 		</>
 	);

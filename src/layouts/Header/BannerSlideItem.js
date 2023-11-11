@@ -4,7 +4,7 @@ const BannerSlideItem = ({ imgItem, isActive = true }) => {
 	return (
 		<>
 			<img
-				src={imgItem['image-slide']}
+				src={imgItem['imageSlide']}
 				className="block w-full h-full sm:object-cover md:object-cover object-none m-0"
 				alt={imgItem.subtitle}
 			/>
@@ -39,7 +39,7 @@ const BannerSlideItem = ({ imgItem, isActive = true }) => {
 							imgItem.id % 2 === 0
 								? 'border-l-2 pl-8'
 								: 'border-r-2 pr-8'
-						} border-opacity-30 
+						} border-opacity-30
 								${
 									isActive
 										? 'animate-[bannerTextAppear_1s_ease-in-out_2s_forwards]'

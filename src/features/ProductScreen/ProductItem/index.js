@@ -109,8 +109,8 @@ const ProductItem = ({
 
 				<div className={`${card ? 'p-7' : 'ml-5 flex-1'}`}>
 					<Rating
-						value={rating?.rate}
-						text={rating?.count ? rating?.count : null}
+						value={rating}
+						text={reviews ? reviews : null}
 						center={card}
 						size={card ? '16' : '15'}
 					/>

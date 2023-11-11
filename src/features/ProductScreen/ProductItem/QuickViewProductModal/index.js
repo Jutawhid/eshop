@@ -98,10 +98,10 @@ const QuickViewProductModal = () => {
 						</h4>
 						<div className="flex items-end max-lg:justify-center max-md:items-center mt-2">
 							<span className="inline-block md:text-5xl text-[33px] font-semibold text-greenBtn">
-								${discount.toFixed(2)}
+								${discount?.toFixed(2)}
 							</span>
 							<span className="inline-block md:text-4xl text-3xl font-semibold text-greenBtn opacity-50 line-through ml-4">
-								${price.toFixed(2)}
+								${price}
 							</span>
 						</div>
 						<div className="flex items-center max-lg:justify-center md:py-5 py-2 md:my-6 my-4 border-t-[1px] border-b-[1px] border-grey max-md:text-sm">

@@ -7,7 +7,7 @@ export default function CartTotal({ items, totalAmount }) {
 						<td className="px-6 py-3">
 							{el.title} x <span>{el.quantity}</span>
 						</td>
-						<td className=" px-6 text-right">${el.totalPrice.toFixed(2)}</td>
+						<td className=" px-6 text-right">${el.totalPrice?.toFixed(2)}</td>
 					</tr>
 				))}
 
