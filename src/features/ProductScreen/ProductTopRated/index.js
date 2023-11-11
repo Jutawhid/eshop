@@ -16,7 +16,7 @@ function ProductTopRated() {
 				.splice(0, 4)
 				.map((product, index) => (
 					<ProductItem
-						key={product.id}
+						key={product?.id}
 						{...product}
 						reviews={false}
 						label={false}

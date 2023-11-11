@@ -44,7 +44,7 @@ function ProductRelated({ types }) {
 			>
 				{products
 					.filter((product) => {
-						const filterCategories = product.category.filter(
+						const filterCategories = product?.category.filter(
 							(item) => types.includes(item)
 						);
 						return filterCategories.length > 0;

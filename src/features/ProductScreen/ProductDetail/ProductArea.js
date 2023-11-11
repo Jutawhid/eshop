@@ -46,35 +46,35 @@ function ProductArea({ product }) {
 	return (
 		<>
 			<div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
-				<ProductListImages images={product.images} />
+				<ProductListImages images={product?.images} />
 				<div className="max-md:mt-10">
 					<div>
 						<Rating
-							value={product.rating}
-							text={product.numReviews}
+							value={product?.rating}
+							text={product?.numReviews}
 							size={16}
 						/>
 						<h4 className="md:text-2xl text-xl font-bold mt-2 capitalize">
-							{product.title}
+							{product?.title}
 						</h4>
 						<div className="flex items-end mt-1">
 							<span className="block text-[40px] font-semibold text-greenBtn">
-								${product.discount}
+								${product?.discount}
 							</span>
 							<span className="block text-[32px] font-bold text-greenBtn opacity-50 line-through ml-4 mb-1">
-								${product.price}
+								${product?.price}
 							</span>
 						</div>
 					</div>
 					<div className="flex items-center py-5 mb-8 border-t-[1px] border-b-[1px] border-grey md:text-base text-sm">
 						<span>Categories:</span>
 						<div className="ml-3">
-							{product.category?.map((item, index) => (
+							{product?.category?.map((item, index) => (
 								<span
 									className="capitalize font-semibold"
 									key={index}
 								>
-									{index === product.category.length - 1
+									{index === product?.category.length - 1
 										? item
 										: `${item},`}
 								</span>
@@ -126,10 +126,10 @@ function ProductArea({ product }) {
 				</div>
 			</div>
 			<ProductDescTabs
-				desc={product.desc}
-				review={product.review}
-				rating={product.rating}
-				numReviews={product.numReviews}
+				desc={product?.desc}
+				review={product?.review}
+				rating={product?.rating}
+				numReviews={product?.numReviews}
 			/>
 		</>
 	);

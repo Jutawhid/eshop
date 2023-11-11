@@ -9,7 +9,7 @@ const CommonSection = ({ title, children }) => {
 					<p className="lg:text-lg text-base uppercase text-[#80B500] md:mb-4 mb-2">
 						Welcome to our company
 					</p>
-					<p className="lg:text-6xl md:text-5xl text-3xl md:text-left text-center capitalize">
+					<p className="lg:text-2xl md:text-5xl text-3xl md:text-left text-center capitalize">
 						{title || '404 Page'}
 					</p>
 				</div>

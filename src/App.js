@@ -69,6 +69,7 @@ function App() {
 						<Route
 							path=":productId"
 							element={<ProductDetailPage />}
+							loader={productLoader}
 						/>
 						<Route path="search" element={<SearchProductsPage />} />
 					</Route>
