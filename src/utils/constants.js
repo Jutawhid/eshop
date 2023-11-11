@@ -67,13 +67,30 @@ export const userList = [
 	},
 	{
 		id: 3,
+		title: 'Wishlist',
+		url: '/coming-soon',
+	},
+];
+export const logeduserList = [
+	{
+		id: 1,
 		title: 'My Account',
 		url: '/user-profile',
 	},
 	{
-		id: 4,
+		id: 2,
+		title: 'My Order',
+		url: '/user-orders',
+	},
+	{
+		id: 3,
 		title: 'Wishlist',
 		url: '/coming-soon',
+	},
+	{
+		id: 4,
+		title: 'LogOut',
+		url: '/login',
 	},
 ];
 

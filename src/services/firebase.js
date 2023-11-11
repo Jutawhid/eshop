@@ -4,12 +4,21 @@ import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
 	// apiKey: 'AIzaSyBTPib--JiS7phRmxpwcBh2fcMEADViIRM',
-	apiKey: process.env.REACT_APP_FIREBASE_KEY,
-	authDomain: 'freshmeals-reactjs.firebaseapp.com',
-	projectId: 'freshmeals-reactjs',
-	storageBucket: 'freshmeals-reactjs.appspot.com',
-	messagingSenderId: '813006076156',
-	appId: '1:813006076156:web:c5e3a3142536418935bf79',
+	// apiKey: process.env.REACT_APP_FIREBASE_KEY,
+	// authDomain: 'freshmeals-reactjs.firebaseapp.com',
+	// projectId: 'freshmeals-reactjs',
+	// storageBucket: 'freshmeals-reactjs.appspot.com',
+	// messagingSenderId: '813006076156',
+	// appId: '1:813006076156:web:c5e3a3142536418935bf79',
+	// measurementId: 'G-XKMMT2WXNB',
+
+
+	apiKey: "AIzaSyD1dl9M1m1xkymDBLVi_0aq2DAJbWyVAc0",
+  authDomain: "eshop-a2f38.firebaseapp.com",
+  projectId: "eshop-a2f38",
+  storageBucket: "eshop-a2f38.appspot.com",
+  messagingSenderId: "767127133639",
+  appId: "1:767127133639:web:cacf1f1e44381fc5c44de2",
 	measurementId: 'G-XKMMT2WXNB',
 };
 
