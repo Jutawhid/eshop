@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from '../../services/firebase';
-
+import generateProducts from '@services/faker/products';
 export const getProducts = createAsyncThunk(
 	'productDisplay/getProducts',
 	async () => {
@@ -11,6 +11,7 @@ export const getProducts = createAsyncThunk(
 			productsSnap.forEach((doc) => {
 				document.push({ ...doc.data(), id: doc.id });
 			});
+			console.log('document', document);
 			return document;
 		} catch (err) {
 			console.log('Error getting products failed:', err.message);
@@ -44,6 +45,10 @@ const productSlice = createSlice({
 	name: 'productDisplay',
 	initialState: initialState,
 	reducers: {
+		setProductList:(state, action)=>{
+			// console.log('action.payload.products', action.payload.products);
+			state.products = action.payload.products
+		},
 		filterProductCategory: (state, action) => {
 			switch (action.payload) {
 				case 'food & drink':

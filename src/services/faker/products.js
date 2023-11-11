@@ -8,8 +8,8 @@ const generateProduct = () => {
   const discount = price - faker.number.int({ max: 100 });
   const desc = faker.lorem.paragraph();
   const images = Array.from({ length: 3 }, () => faker.image.url());
-  const category = faker.helpers.arrayElement(['electronics', 'clothing', 'books', 'Fashion', 'Animale']);
-  const label = faker.helpers.arrayElement(['new', 'bestseller', 'featured']);
+  const category = faker.helpers.arrayElement(['electronics', 'clothing', 'books', 'fashion', 'animale', 'fruits']);
+  const label = faker.helpers.arrayElement(['new', 'big sale', 'offer']);
   const reviews = faker.number.int({ min: 0, max: 200 });
   const id = faker.string.uuid();
 

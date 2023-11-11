@@ -22,7 +22,6 @@ import { loader as blogLoader } from '@pages/Blog/BlogDetailPage';
 import { action as checkoutAction } from '@features/CheckoutScreen';
 
 const SearchProductsPage = lazy(() => import('@pages/Shop/ProductSearch'));
-const About = lazy(() => import('@pages/About'));
 const ProductDetailPage = lazy(() => import('@pages/Shop/ProductDetailPage'));
 const ProductGridPage = lazy(() => import('@pages/Shop/ProductGridPage'));
 const Contact = lazy(() => import('@pages/Contact'));
@@ -75,7 +74,6 @@ function App() {
 						<Route
 							path=":productId"
 							element={<ProductDetailPage />}
-							loader={productLoader}
 						/>
 						<Route path="search" element={<SearchProductsPage />} />
 					</Route>
@@ -85,7 +83,6 @@ function App() {
 						element={<Checkout />}
 						action={checkoutAction}
 					/>
-					<Route path="about" element={<About />} />
 					<Route path="contact" element={<Contact />} />
 
 					<Route path="blog" element={<BlogLayout />}>

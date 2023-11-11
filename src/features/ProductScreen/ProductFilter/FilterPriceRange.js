@@ -4,10 +4,10 @@ import RangSlider from '@features/ProductScreen/ProductFilter/RangSlider';
 function FilterPriceRange({ setFieldValue }) {
 	const initValue = {
 		min: 0,
-		max: 300,
+		max: 30000,
 		step: 1,
 		minPrice: 0,
-		maxPrice: 150,
+		maxPrice: 1000,
 	};
 	const [values, setValues] = useState({
 		minPrice: initValue.minPrice,

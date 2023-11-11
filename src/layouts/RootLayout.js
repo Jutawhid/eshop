@@ -2,11 +2,13 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { useRouteLoaderData } from 'react-router-dom';
 
 import CommonSection from '@components/CommonSection';
 import Header from './Header';
 import Footer from './Footer';
 import { fetchCartData, sendCartData } from '@store/cart/cart-actions';
+import { productActions } from '@store/products/productSlice';
 import { getData } from '../services/api';
 import ScrollToTop from '@components/ScrollToTop';
 
@@ -14,9 +16,15 @@ let isInitial = true;
 
 function RootLayout() {
 	const cart = useSelector((state) => state.cart);
+
+	const { products } = useRouteLoaderData('root');
+	// console.log('products', products);
 	const dispatch = useDispatch();
+	dispatch(productActions.setProductList({products: products}));
+	// const productsList = useSelector((state) => state.products?.products);
 	useEffect(() => {
 		dispatch(fetchCartData());
+
 	}, [dispatch]);
 
 	useEffect(() => {

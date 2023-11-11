@@ -23,11 +23,11 @@ export const spinner = spinnerImg;
 export const addCart = add_cart;
 
 export const labelProduct = [
-	{ id: 1, label: 'food & drinks' },
-	{ id: 2, label: 'vegetables' },
-	{ id: 3, label: 'dried food' },
-	{ id: 4, label: 'bread & cake' },
-	{ id: 5, label: 'fish & meat' },
+	{ id: 1, label: 'electronics' },
+	{ id: 2, label: 'clothing' },
+	{ id: 3, label: 'books' },
+	{ id: 4, label: 'fashion' },
+	{ id: 5, label: 'animale' },
 	{ id: 6, label: 'fruits' },
 ];
 
@@ -38,13 +38,6 @@ export const navbarList = [
 		title: 'home',
 		url: '/',
 		parent_id: null,
-	},
-
-	{
-		id: 2,
-		title: 'about',
-		url: '/about',
-		parent_id: 1,
 	},
 	{
 		id: 3,
@@ -98,43 +91,33 @@ export const productFilter = {
 	categories: [
 		{
 			id: 1,
-			value: 'bread',
-			key: 'bread',
+			value: 'electronics',
+			key: 'electronics',
 		},
 		{
 			id: 2,
-			value: 'cake',
-			key: 'cake',
+			value: 'clothing',
+			key: 'clothing',
 		},
 		{
 			id: 3,
-			value: 'dried food',
-			key: 'dried food',
+			value: 'books',
+			key: 'books',
 		},
 		{
 			id: 4,
-			value: 'drink',
-			key: 'drink',
+			value: 'fashion',
+			key: 'fashion',
 		},
 		{
 			id: 5,
-			value: 'fish',
-			key: 'fish',
+			value: 'animale',
+			key: 'animale',
 		},
 		{
 			id: 6,
 			value: 'fruits',
 			key: 'fruits',
-		},
-		{
-			id: 7,
-			value: 'meat',
-			key: 'meat',
-		},
-		{
-			id: 8,
-			value: 'vegetables',
-			key: 'vegetables',
 		},
 	],
 	labels: [
@@ -196,6 +179,7 @@ export const consent = [
 export const countryOption = [
 	{ key: 'Select country', value: '' },
 	{ key: 'Australia', value: 'Australia' },
+	{ key: 'Bangladesh', value: 'Bangladesh' },
 	{ key: 'France', value: 'France' },
 	{ key: 'United Kingdom (UK)', value: 'United Kingdom (UK)' },
 	{ key: 'China', value: 'China' },

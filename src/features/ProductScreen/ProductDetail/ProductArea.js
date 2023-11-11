@@ -15,6 +15,7 @@ import { Quantity } from '@components/Cart/Quantity';
 import { toastMessage } from '@utils/toastMessage';
 
 function ProductArea({ product }) {
+	console.log('ProductArea', product);
 	let [quantity, setQuantity] = useState(1);
 	const dispatch = useDispatch();
 
