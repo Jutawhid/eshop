@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigation } from 'react-router-dom';
 
 import Title from '@components/Title';
-import { BlogGrid } from '@components/Blog';
 import ProductGrid from '@features/ProductScreen/ProductGrid';
 import * as cs from '@utils/constants';
 import Loader from '@components/UI/Loader';
@@ -31,7 +30,6 @@ function SearchByTitle({ list, isBlog, isProduct }) {
 			{resultSearch.length > 0 ? (
 				<>
 					<Title subtitle={`Search result: ${resultSearch.length} posts`} />
-					{isBlog && <BlogGrid blogs={resultSearch} />}
 					{isProduct && <ProductGrid products={resultSearch} fourCols={true} />}
 				</>
 			) : (
@@ -49,7 +47,7 @@ function SearchByTitle({ list, isBlog, isProduct }) {
 						subtitle={(isBlog && 'All Blogs') || (isProduct && 'All Products')}
 						center={false}
 					/>
-					{isBlog && <BlogGrid blogs={list} />}
+
 					{isProduct && <ProductGrid products={list} fourCols={true} />}
 				</>
 			)}

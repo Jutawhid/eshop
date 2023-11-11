@@ -15,6 +15,7 @@ module.exports = {
 			},
 			colors: {
 				greenBtn: '#80b500',
+				blackBtn: '#000',
 				sectionBg: '#F7F5EB',
 			},
 			keyframes: {

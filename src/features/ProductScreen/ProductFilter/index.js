@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
-import { useRouteLoaderData } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Formik } from "formik";
 
-import useQuery from "@hooks/useQuery";
+
 import Button from "@components/UI/Button";
 import { default as Grid } from "@features/ProductScreen/ProductGrid";
-import { CommonSection } from "@components/Blog";
+import { CommonSection } from "@components/Form";
 import FormikControl from "@components/Form/FormikControl";
 import QuickViewProductModal from "../ProductItem/QuickViewProductModal";
 import SuccessModal from "../ProductItem/SuccessModal";
 import FilterPriceRange from "./FilterPriceRange";
-import Tooltip from "@components/UI/Tooltip";
 import { productFilter as filter } from "@utils/constants";
 
 function ProductFilter() {
@@ -21,8 +19,6 @@ function ProductFilter() {
   const [error, setError] = useState();
   const [isFiltering, setIsFiltering] = useState(false);
   const [rate, setRate] = useState();
-
-  const { handleQuery, resultQuery } = useQuery("products", []);
 
   const quickViewModal = useSelector((state) => state.modal.quickViewModal);
   const successModal = useSelector((state) => state.modal.successModal);
@@ -36,13 +32,6 @@ function ProductFilter() {
   };
 
   useEffect(() => {
-    // if (isFiltering && resultQuery.length > 0 && rate) {
-    // 	setFilterResult(
-    // 		resultQuery.filter((product) => product.rating >= rate)
-    // 	);
-    // } else {
-    // 	setFilterResult(resultQuery);
-    // }
   }, [filterResult, isFiltering, rate]);
 
   const handleFilter = (values) => {
@@ -64,7 +53,8 @@ function ProductFilter() {
             values?.checkboxes?.includes(category)
           ) &&
 					item.label == values?.sale &&
-					item.rating == values?.rate
+					item.rating == values?.rate &&
+					item.discount >= values?.minPrice && item.discount <= values?.maxPrice
         )
       );
       setFilterResult(

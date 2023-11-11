@@ -18,10 +18,8 @@ function RootLayout() {
 	const cart = useSelector((state) => state.cart);
 
 	const { products } = useRouteLoaderData('root');
-	// console.log('products', products);
 	const dispatch = useDispatch();
 	dispatch(productActions.setProductList({products: products}));
-	// const productsList = useSelector((state) => state.products?.products);
 	useEffect(() => {
 		dispatch(fetchCartData());
 

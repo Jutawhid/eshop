@@ -2,6 +2,7 @@ import BtnItemModal from '@components/Product/BtnItemModal';
 import Price from '@components/Product/Price';
 import { Link } from 'react-router-dom';
 import Rating from '@components/Product/Rating';
+import Tags from '@components/Tags';
 import Card from '@components/UI/Card';
 import { useDispatch } from 'react-redux';
 import { modalActions } from '@store/modal/modalSlice';
@@ -107,7 +108,12 @@ const ProductItem = ({
 					)}
 				</div>
 
-				<div className={`${card ? 'p-7' : 'ml-5 flex-1'}`}>
+
+				<div className={`${card ? 'p-2' : 'ml-5 flex-1'}`}>
+				{category && <Tags tags={category} label={label}/>}
+				</div>
+				<div className={`${card ? 'p-7 pt-2' : 'ml-5 flex-1'}`}>
+
 					<Rating
 						value={rating}
 						text={reviews ? reviews : null}
@@ -127,7 +133,9 @@ const ProductItem = ({
 						>
 							{title}
 						</span>
+
 					</Link>
+
 					<Price
 						card={card}
 						discount={discount ? discount : 0}

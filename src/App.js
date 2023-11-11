@@ -13,21 +13,16 @@ import { saveUser } from '@store/auth/authSlice';
 import Loader from '@components/UI/Loader';
 import RootLayout, { loader as rootLoader } from '@layouts/RootLayout';
 import ShopLayout from '@layouts/ShopLayout';
-import BlogLayout from '@layouts/BlogLayout';
 import PrivateRoute from '@components/PrivateRoute';
 import Home from '@pages/Home'
 
 import { loader as productLoader } from '@pages/Shop/ProductDetailPage';
-import { loader as blogLoader } from '@pages/Blog/BlogDetailPage';
 import { action as checkoutAction } from '@features/CheckoutScreen';
 
 const SearchProductsPage = lazy(() => import('@pages/Shop/ProductSearch'));
 const ProductDetailPage = lazy(() => import('@pages/Shop/ProductDetailPage'));
 const ProductGridPage = lazy(() => import('@pages/Shop/ProductGridPage'));
 const Contact = lazy(() => import('@pages/Contact'));
-const SearchBlogsPage = lazy(() => import('@pages/Blog/BlogSearch'));
-const BlogGridPage = lazy(() => import('@pages/Blog/BlogGridPage'));
-const BlogDetailPage = lazy(() => import('@pages/Blog/BlogDetailPage'));
 const Gallery = lazy(() => import('@pages/Gallery'));
 const Cart = lazy(() => import('@pages/Cart'));
 const Checkout = lazy(() => import('@pages/Checkout'));
@@ -85,15 +80,6 @@ function App() {
 					/>
 					<Route path="contact" element={<Contact />} />
 
-					<Route path="blog" element={<BlogLayout />}>
-						<Route index element={<BlogGridPage />} />
-						<Route
-							path=":blogId"
-							element={<BlogDetailPage />}
-							loader={blogLoader}
-						/>
-						<Route path="search" element={<SearchBlogsPage />} />
-					</Route>
 					<Route path="gallery" element={<Gallery />} />
 				</Route>
 				<Route path="coming-soon" element={<ComingSoon />} />

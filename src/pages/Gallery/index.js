@@ -4,7 +4,6 @@ import { useRouteLoaderData } from 'react-router-dom';
 import Title from '@components/Title';
 import Button from '@components/UI/Button';
 import Loader from '@components/UI/Loader';
-import BlogLeatest from '@features/BlogScreen/BlogLeatest';
 
 const Gallery = () => {
 	const { galleries } = useRouteLoaderData('root');
@@ -55,7 +54,6 @@ const Gallery = () => {
 					)}
 				</div>
 			</div>
-			<BlogLeatest />
 		</>
 	);
 };
