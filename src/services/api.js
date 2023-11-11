@@ -22,17 +22,8 @@ export const getData = async() => {
 	const slideHeader = await getslideHeader();
 
 	return {
-		// blogs,
 		products,
 		promotions,
-		// galleries,
-		// questions,
-		// services,
-		// teams,
-		// feedbacks,
-		// portfolio,
-		// countdown,
 		slideHeader,
-		// features,
 	};
 };
