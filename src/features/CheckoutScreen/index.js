@@ -12,10 +12,12 @@ import { toastMessage } from '@utils/toastMessage';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '@store/cart/cartSlice';
 import { useNavigate  } from 'react-router-dom';
+import Loader from '@components/UI/Loader';
 
 export default function CheckoutScreen() {
 	const submit = useSubmit();
 	const [user, setUser] = useState(null);
+	const [loader, setLoader] = useState(false);
 
 	const cartItems = useSelector((state) => state.cart.items);
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
@@ -46,8 +48,9 @@ export default function CheckoutScreen() {
 
 	const handleCheckout = async(values, actions) => {
 		if(cartItems.length != 0) {
-			submit(values, { method: 'post', action: '/user-profile' });
+			submit(values, { method: 'post', action: '/checkout' });
 		try {
+			setLoader(true)
       // Create a new order document in Firestore
       const orderRef = await addDoc(collection(db, 'orders'), {
         ...values,
@@ -63,14 +66,15 @@ export default function CheckoutScreen() {
 
       console.log('Order placed successfully! Order ID:', orderRef.id);
 			toastMessage('Order placed successfully! Order ID:', orderRef.id);
-
+			setLoader(false)
 			setTimeout(()=>{
 				if(orderRef.id != null){
 					navigate('/user-profile')
 				}
-			},1000)
+			},500)
       // Additional actions after successful order submission
     } catch (error) {
+			setLoader(false)
       console.error('Error placing order:', error);
     }
 		actions.resetForm();
@@ -83,7 +87,7 @@ export default function CheckoutScreen() {
 	return (
 		<div className="container my-28">
 			<section>
-				<p className="bg-sectionBg py-4 px-7 text-lg font-bold">
+				{/* <p className="bg-sectionBg py-4 px-7 text-lg font-bold">
 					<span className="">Returning customer ? </span>
 					<Link
 						to="/login"
@@ -91,13 +95,13 @@ export default function CheckoutScreen() {
 					>
 						Click here to login
 					</Link>
-				</p>
-				<p className="bg-sectionBg py-4 px-7 mt-7 text-lg font-bold">
+				</p> */}
+				{/* <p className="bg-sectionBg py-4 px-7 mt-7 text-lg font-bold">
 					<span className="">Have a coupon ? </span>
 					<button className="text-greenBtn">
 						Click here to enter your code
 					</button>
-				</p>
+				</p> */}
 			</section>
 			<Formik
 				initialValues={initialValues}
@@ -127,6 +131,7 @@ export default function CheckoutScreen() {
 								totalAmount={totalAmount}
 							/>
 						</div>
+						{loader && <Loader type="section" />}
 					</section>
 				</Form>
 			</Formik>
