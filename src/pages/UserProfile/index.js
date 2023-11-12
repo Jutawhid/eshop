@@ -70,7 +70,7 @@ export default function UserProfile() {
   // console.log("UserData", userProfile.filter((i) => i.uid == user?.uid)[0]);
   return (
     <div className="container">
-      <div className="flex max-md:flex-col max-md:justify-center items-center gap-8">
+      <div className="flex max-md:flex-col max-md:justify-center items-center gap-8 mt-10">
         <img alt="avatar_default" src={cs.user} className="h-36 w-36" />
         <div className="max-md:basis-full">
           <div className="flex items-center mb-1 max-md:justify-center">
@@ -102,7 +102,7 @@ export default function UserProfile() {
         <span className="btn-animated-text">Log out</span>
       </Button>
       <Title title="My Orders" />
-      <div className="flex flex-col">
+      <div className="flex flex-col mb-5">
         <div className="overflow-x-auto">
           <div className="p-1.5 w-full inline-block align-middle">
             <div className="overflow-hidden border rounded-lg">
@@ -114,6 +114,12 @@ export default function UserProfile() {
                       className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
                     >
                       ID
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                    >
+                      Image
                     </th>
                     <th
                       scope="col"
@@ -140,83 +146,94 @@ export default function UserProfile() {
                       Total Amount
                     </th>
                     <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
-                      >
-                        Order Status
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
-                      >
-                        Tracking
-                      </th>
+                      scope="col"
+                      className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                    >
+                      Order Status
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                    >
+                      Tracking
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {userOrder.map((item, index) => {
-                    return (
-                      <>
-                        <tr key={index}>
-                          <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                            {item?.id}
-                          </td>
-                          <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                            <ul>
-                              {item?.cart?.map((cartItem, index) => {
-                                return (
-                                  <>
-                                    <li>{cartItem?.title}</li>
-                                  </>
-                                );
-                              })}
-                            </ul>
-                          </td>
-                          <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                            <ul>
-                              {item?.cart?.map((cartItem, index) => {
-                                return (
-                                  <>
-                                    <li>{cartItem?.quantity}</li>
-                                  </>
-                                );
-                              })}
-                            </ul>
-                          </td>
-                          <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                            <ul>
-                              {item?.cart?.map((cartItem, index) => {
-                                return (
-                                  <>
-                                    <li>{cartItem?.totalPrice} $</li>
-                                  </>
-                                );
-                              })}
-                            </ul>
-                          </td>
-                          <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                            {item?.totalAmount} $
-                          </td>
-                          <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                            <a
-                              className="text-green-500 hover:text-green-700"
-                              href="#"
-                            >
-                              Order processing
-                            </a>
-                          </td>
-                          <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                            <a
-                              className="text-red-500 hover:text-red-700"
-                              href="#"
-                            >
-                              Track order
-                            </a>
-                          </td>
-                        </tr>
-                      </>
-                    );
-                  })}
+                  {userOrder.map((item, index) =>
+                    item.user == authUser.email ? (
+                      <tr key={index}>
+                        <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                          {item?.id}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+
+                            {item?.cart?.map((cartItem, index) => {
+                              return (
+                                <>
+                                  <img src={cartItem?.image} width="30" height="30" className="px-1 py-1"/>
+                                </>
+                              );
+                            })}
+
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                          <ul>
+                            {item?.cart?.map((cartItem, index) => {
+                              return (
+                                <>
+                                  <li>{cartItem?.title}</li>
+                                </>
+                              );
+                            })}
+                          </ul>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                          <ul>
+                            {item?.cart?.map((cartItem, index) => {
+                              return (
+                                <>
+                                  <li>{cartItem?.quantity}</li>
+                                </>
+                              );
+                            })}
+                          </ul>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                          <ul>
+                            {item?.cart?.map((cartItem, index) => {
+                              return (
+                                <>
+                                  <li>{cartItem?.totalPrice} $</li>
+                                </>
+                              );
+                            })}
+                          </ul>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                          {item?.totalAmount} $
+                        </td>
+                        <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                          <a
+                            className="text-green-500 hover:text-green-700"
+                            href="#"
+                          >
+                            Order processing
+                          </a>
+                        </td>
+                        <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                          <a
+                            className="text-red-500 hover:text-red-700"
+                            href="#"
+                          >
+                            Track order
+                          </a>
+                        </td>
+                      </tr>
+                    ) : (
+                      <></>
+                    )
+                  )}
                 </tbody>
               </table>
             </div>

@@ -5,9 +5,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://eshop-n0gluwh4k-jutawhid.vercel.app/static/media/logo.98bcbef8373309adffa7.png">
-    <img src="https://eshop-n0gluwh4k-jutawhid.vercel.app/static/media/logo.98bcbef8373309adffa7.png" alt="Logo" width="80" height="80">
-  </a>
 
   <h3 align="center">E-Commerce Test Project (eShop)</h3>
 
