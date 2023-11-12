@@ -5,7 +5,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://eshop-azure-three.vercel.app/">
+  <a href="https://eshop-n0gluwh4k-jutawhid.vercel.app/static/media/logo.98bcbef8373309adffa7.png">
     <img src="https://eshop-n0gluwh4k-jutawhid.vercel.app/static/media/logo.98bcbef8373309adffa7.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -22,33 +22,29 @@
 
 This is an e-commer website it have Home page, Store Page, Contact Page, cart page, checkout page.
 
-Here's why:
+<!-- Here's why:
 * Your time should be focused on creating something amazing. A project that solves a problem and helps others
 * You shouldn't be doing the same tasks over and over like creating a README from scratch
 * You should implement DRY principles to the rest of your life :smile:
 
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 
-Use the `BLANK_README.md` to get started.
+Use the `BLANK_README.md` to get started. -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Built With
 
-* [![React][React.js]][React-url]
-* [![Redux][Redux.io]]
-* [![Tailwind][Tailwind.dev]][Svelte-url]
-* [![Faker.js][Faker.js]][Laravel-url]
-* [![Firebase][Firebase.com]][Firebase-url]
+* Reactjs
+* Redux
+* Tailwind css
+* Faker.js
+* Firebase
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## Reactjs, Redux, Tailwind css, Faker.js, Firebase Database and Auth
-## Reactjs, Redux, Tailwind css, Faker.js, Firebase Database and Auth
 
 
 ### Installation
-
-
 
 1. Clone the repo
    ```sh
@@ -70,4 +66,10 @@ Use the `BLANK_README.md` to get started.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+### Test User
+
+1. You can test this demo user
+   ```sh
+   user = user@gmail.com password=123456
+   ```
 <br/>
