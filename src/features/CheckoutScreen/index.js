@@ -1,19 +1,25 @@
-import { Link, useSubmit } from 'react-router-dom';
+import { Link, redirect, useSubmit } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
-
+import { db, auth  } from '@services/firebase';
+import { useState, useEffect } from "react";
 import CartTotal from '@components/Cart/CartTotal';
 import CheckoutForm from '@components/Form/CheckoutForm';
 import PaymentMethod from '@components/Form/PaymentForm';
 import { CheckoutSchema } from '@components/Form/ValidationSchema';
-
+import { collection, addDoc, serverTimestamp} from 'firebase/firestore';
+import { toastMessage } from '@utils/toastMessage';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '@store/cart/cartSlice';
+import { useNavigate  } from 'react-router-dom';
 
 export default function CheckoutScreen() {
 	const submit = useSubmit();
+	const [user, setUser] = useState(null);
 
 	const cartItems = useSelector((state) => state.cart.items);
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
-
+	let navigate = useNavigate();
 	const initialValues = {
 		firstname: '',
 		lastname: '',
@@ -29,6 +35,50 @@ export default function CheckoutScreen() {
 		notes: '',
 		paymentmethod: '',
 	};
+	const dispatch = useDispatch();
+	useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      // console.log("user");
+      if (user) setUser(user);
+      else setUser(null);
+    });
+  }, []);
+
+	const handleCheckout = async(values, actions) => {
+		if(cartItems.length != 0) {
+			submit(values, { method: 'post', action: '/user-profile' });
+		try {
+      // Create a new order document in Firestore
+      const orderRef = await addDoc(collection(db, 'orders'), {
+        ...values,
+        cart: cartItems,
+				totalAmount:totalAmount,
+        timestamp: serverTimestamp(),
+				user: user.email
+      });
+
+			dispatch(
+				cartActions.clearCart()
+			);
+
+      console.log('Order placed successfully! Order ID:', orderRef.id);
+			toastMessage('Order placed successfully! Order ID:', orderRef.id);
+
+			setTimeout(()=>{
+				if(orderRef.id != null){
+					navigate('/user-profile')
+				}
+			},1000)
+      // Additional actions after successful order submission
+    } catch (error) {
+      console.error('Error placing order:', error);
+    }
+		actions.resetForm();
+		} else {
+			toastMessage('cart empty')
+		}
+
+	}
 
 	return (
 		<div className="container my-28">
@@ -52,13 +102,7 @@ export default function CheckoutScreen() {
 			<Formik
 				initialValues={initialValues}
 				validationSchema={CheckoutSchema}
-				onSubmit={(values, actions) => {
-					submit(values, { method: 'post', action: '/checkout' });
-					alert(
-						'Form submitted successfully! Thank you for your information!'
-					);
-					actions.resetForm();
-				}}
+				onSubmit={handleCheckout}
 			>
 				<Form>
 					<section className="mt-14">
@@ -93,5 +137,6 @@ export default function CheckoutScreen() {
 export const action = async ({ request }) => {
 	const formData = Object.fromEntries(await request.formData());
 	console.log('formData', formData);
+	console.log('cartData', formData);
 	return { checkout: 'ok' };
 };

@@ -77,21 +77,13 @@ export default function CheckoutForm() {
 					<FormikControl control="input" name="city" placeholder="City" />
 				</div>
 				<div className="lg:w-1/3 md:flex-1 w-full">
-					<h5 className="font-bold text-sm mb-4">State</h5>
+					<h5 className="font-bold text-sm mb-4">State/PO</h5>
 					<FormikControl control="input" name="state" placeholder="State" />
 				</div>
 				<div className="lg:w-1/3 w-full">
 					<h5 className="font-bold text-sm mb-4">Zip</h5>
 					<FormikControl control="input" name="zip" placeholder="Zip" />
 				</div>
-			</div>
-			<div className="mt-5">
-				<FormikControl
-					control="checkbox"
-					name="createaccount"
-					options={createaccount}
-					className="mr-2"
-				/>
 			</div>
 
 			<div className="mt-10">

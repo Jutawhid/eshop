@@ -117,7 +117,7 @@ const Header = () => {
                 <div className="lg:block hidden">
                   <SearchProducts />
                 </div>
-                {!isLogedin ? (
+                {user == undefined ? (
                   <>
                     <div
                       ref={dropdownRef}

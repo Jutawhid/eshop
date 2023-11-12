@@ -76,7 +76,7 @@ function App() {
 					<Route path="cart" element={<Cart />} />
 					<Route
 						path="checkout"
-						element={<Checkout />}
+						element={<PrivateRoute><Checkout /></PrivateRoute>}
 						action={checkoutAction}
 					/>
 					<Route path="contact" element={<Contact />} />
