@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Button from "@components/UI/Button";
+import TimestampToDateString from "@components/Product/TimestampToDateString";
 import { auth } from "@services/firebase";
 import { signOut } from "firebase/auth";
 import * as cs from "@utils/constants";
@@ -113,7 +114,7 @@ export default function UserProfile() {
                       scope="col"
                       className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
                     >
-                      ID
+                      Order Date
                     </th>
                     <th
                       scope="col"
@@ -164,7 +165,8 @@ export default function UserProfile() {
                     item.user == authUser.email ? (
                       <tr key={index}>
                         <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                          {item?.id}
+                          {/* {item?.id} */}
+                          <TimestampToDateString timestamp={item?.timestamp}/>
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
 
